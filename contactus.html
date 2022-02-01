@@ -104,125 +104,135 @@
                     <h2>Born To Travel</h2>
 
                 </div>
-                <div class="h1 text-center mt-2 text-primary font-weight-bold">Contact Us</div>
-                <section class="contact-form ">
-                    <div class="container shadow rounded py-5">
-                        <div class="row ">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-6">
-                                <img src="images/contact-us.png" class="img-fluid">
-                            </div>
+                <?php 
 
-                            <div class="col-md-5">
+if (isset($_POST['submit'])) {
+    $to = $_POST['email']; 
+    $subject = $_POST['name'];
+    $message = getRequestURI();
+    $from = "zenphoto@example.com";
+    $headers = "From:" . $from;
 
-                                <form name="myform" method="post" id="contact-form" action="contact-us.php" onsubmit="validation()">
-                                    <div class="form-group">
-                                        <label for="username">Name</label>
-                                        <input type="text" class="form-control" name="name" id="name" maxlength="30" placeholder="Name" pattern="^[a-zA-Z][\sa-zA-Z]{2,32}" required title="Must contain Alphabet only(Min 3 Letters)">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="useremail">Email address</label>
-                                        <input type="email" class="form-control" id="email" name="email" maxlength="30" placeholder="Email-id" required title="e.g. abc@xyz.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="usermobile">Mobile Number</label>
-                                        <input type="tel" class="form-control" placeholder="Phone Number" id="mobile" maxlength="10" required title="Enter Only Digits (0-9)" pattern="^\d{10}$" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" name="mobile">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="userneed">Select Service</label>
-                                        <select class="form-control " id="usercourse" required name="usercourse">
-                                            <option class="bg-white" value="" selected="selected">Choose Services</option>
-                                            <option class="bg-white" value="Web Development">Software Testing</option>
-                                           
-                                            <option class="bg-white" value="Software Testing">Selenium Testing</option>
-                                            <option class="bg-white" value="Mobile App Development">Automation Testing</option>
-                                            <option class="bg-white" value="Mobile App Development">Core Java</option>
-                                          
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="usermessage">Your Message</label>
-                                        <textarea class="form-control" placeholder="Your Message Here" required id="usermsg" name="usermsg" rows="3"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-info btn-lg" data-toggle="modal">Submit</button>
-                                    </div>
-                                    <div class="alert alert-success mt-4" id="alert-feedback" role="alert" style="display:none;">
-                                        Your Message has been submitted we will contact you soon
-                                    </div>
-                                </form>
-                            </div>
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Mail Sent.";
+    }
+    else {
+        echo "failed";
+    }
+}
 
+?> What is the code to send an email in PHP? php html email Share Follow edited Dec 9 '15 at 8:47 Markus Amalthea Magnuson 7,89144 gold badges3939 silver badges4949 bronze badges asked Aug 22 '13 at 11:33 fusi0n 1,00933 gold badges1212 silver
+                badges2121 bronze badges Can you show the full code, including your HTML? – Amal Murali Aug 22 '13 at 11:39 I don't understand what you want to do. Do you want to send a copy of the message to the person who filled in the form? – Funk
+                Forty Niner Aug 22 '13 at 12:44 Add a comment 8 Answers 169 EDIT (#1) If I understand correctly, you wish to have everything in one page and execute it from the same page. You can use the following code to send mail from a single page,
+                for example index.php or contact.php The only difference between this one and my original answer is the
+                <form action="" method="post"> where the action has been left blank. It is better to use header('Location: thank_you.php'); instead of echo in the PHP handler to redirect the user to another page afterwards. Copy the entire code below into one file.
+                    <?php 
+if(isset($_POST['submit'])){
+    $to = "email@example.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $first_name . " " . $last_name . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
 
-                        </div>
-                    </div>
-            </div>
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
 
-            <!-- footer -->
-            <footer>
-                <div id="contact " class="footer ">
-                    <div class="container ">
-                        <div class="row pdn-top-30 ">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
-                                <ul class="location_icon ">
-                                    <li>
-                                        <a href="# "><img src="images/facebook.png "></a>
-                                    </li>
-                                    <li>
-                                        <a href="# "><img src="images/Twitter.png "></a>
-                                    </li>
-                                    <li>
-                                        <a href="# "><img src="images/linkedin.png "></a>
-                                    </li>
-                                    <li>
-                                        <a href="# "><img src="images/instagram.png "></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
-                                <div class="Follow ">
-                                    <h3>CONTACT US</h3>
-                                    <span>New Rajendar Nagar <br>Delhi Road,<br>
+                    <!DOCTYPE html>
+
+                    <head>
+                        <title>Form submission</title>
+                    </head>
+
+                    <body>
+
+                        <form action="" method="post">
+                            First Name: <input type="text" name="first_name"><br> Last Name: <input type="text" name="last_name"><br> Email: <input type="text" name="email"><br> Message:
+                            <br><textarea rows="5" name="message" cols="30"></textarea><br>
+                            <input type="submit" name="submit" value="Submit">
+                        </form>
+
+                    </body>
+
+</html>
+
+</div>
+</div>
+</div>
+
+<!-- footer -->
+<footer>
+    <div id="contact " class="footer ">
+        <div class="container ">
+            <div class="row pdn-top-30 ">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+                    <ul class="location_icon ">
+                        <li>
+                            <a href="# "><img src="images/facebook.png "></a>
+                        </li>
+                        <li>
+                            <a href="# "><img src="images/Twitter.png "></a>
+                        </li>
+                        <li>
+                            <a href="# "><img src="images/linkedin.png "></a>
+                        </li>
+                        <li>
+                            <a href="# "><img src="images/instagram.png "></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
+                    <div class="Follow ">
+                        <h3>CONTACT US</h3>
+                        <span>New Rajendar Nagar <br>Delhi Road,<br>
                         Hapur, 245101 <br>
                         +91 7895439932</span>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
-                                <div class="Follow ">
-                                    <h3>ADDITIONAL LINKS</h3>
-                                    <ul class="link ">
-                                        <li> <a href="# ">About us</a></li>
-                                        <li> <a href="# ">Terms and conditions</a></li>
-                                        <li> <a href="# "> Privacy policy</a></li>
-                                        <li> <a href="# ">News</a></li>
-                                        <li> <a href="# "> Contact us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="copyright ">
-                        <div class="container ">
-                            <p>Copyright 2021 All Right Reserved By
-                                <a href="https://bttborntotravel.com ">Travel with Us</a>
-                            </p>
-                        </div>
                     </div>
                 </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
+                    <div class="Follow ">
+                        <h3>ADDITIONAL LINKS</h3>
+                        <ul class="link ">
+                            <li> <a href="# ">About us</a></li>
+                            <li> <a href="# ">Terms and conditions</a></li>
+                            <li> <a href="# "> Privacy policy</a></li>
+                            <li> <a href="# ">News</a></li>
+                            <li> <a href="# "> Contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        </footer>
-        <!-- end footer -->
-        <!-- Javascript files-->
-        <script src="js/jquery.min.js "></script>
-        <script src="js/popper.min.js "></script>
-        <script src="js/bootstrap.bundle.min.js "></script>
-        <script src="js/jquery-3.0.0.min.js "></script>
-        <script src="js/plugin.js "></script>
-        <!-- sidebar -->
-        <script src="js/jquery.mCustomScrollbar.concat.min.js "></script>
-        <script src="js/custom.js "></script>
-        <!-- javascript -->
-        <script src="js/owl.carousel.js "></script>
+        <div class="copyright ">
+            <div class="container ">
+                <p>Copyright 2021 All Right Reserved By
+                    <a href="https://bttborntotravel.com ">Travel with Us</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</footer>
+<!-- end footer -->
+<!-- Javascript files-->
+<script src="js/jquery.min.js "></script>
+<script src="js/popper.min.js "></script>
+<script src="js/bootstrap.bundle.min.js "></script>
+<script src="js/jquery-3.0.0.min.js "></script>
+<script src="js/plugin.js "></script>
+<!-- sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js "></script>
+<script src="js/custom.js "></script>
+<!-- javascript -->
+<script src="js/owl.carousel.js "></script>
 
 </body>
 
