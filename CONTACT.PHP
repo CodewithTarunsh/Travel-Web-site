@@ -1,19 +1,5 @@
 <?php 
 
-if (isset($_POST['submit'])) {
-    $to = $_POST['email']; 
-    $subject = $_POST['name'];
-    $message = getRequestURI();
-    $from = "email";
-    $headers = "From:" . $from;
-
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Mail Sent.";
-    }
-    else {
-        echo "failed";
-    }
-}
 
 if(isset($_POST['submit'])){
     $to = "tarunhpr2001@gmail.com"; // this is your Email address
