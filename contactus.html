@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <link rel="icon" href="images\born to travel.png" sizes="200x200">
+
+    <title>Born to Travel</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="A site to book your tour packages to make your journey beautifull and sweet.">
+    <meta name="author" content="Mr.Tarun Sharma">
+    <!-- bootstrap css -->
+    <link rel="stylesheet " href="css/bootstrap.min.css ">
+    <!-- style css -->
+    <link rel="stylesheet " href="css/style.css ">
+    <!-- Responsive-->
+    <link rel="stylesheet " href="css/responsive.css ">
+    <!-- fevicon -->
+    <link rel="icon " href="images/fevicon.png " type="image/gif " />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet " href="css/jquery.mCustomScrollbar.min.css ">
+    <!-- Tweaks for older IEs-->
+    <!-- owl stylesheets -->
+    <link rel="stylesheet " href="css/owl.carousel.min.css ">
+    <link rel="stylesheet " href="css/owl.theme.default.min.css ">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js "></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js "></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout ">
+    <!-- loader  -->
+    <div class="loader_bg ">
+        <div class="loader "><img src="images/loading.gif " alt="# " /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+
+        <!-- header inner -->
+        <div class="header ">
+            <div class="header_white_section ">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <div class="col-md-12 ">
+                            <div class="header_information ">
+                                <ul>
+                                    <li><img src="images/1.png " alt="# " /> New Rajendar Nagar Hapur</li>
+                                    <li><img src="images/2.png " alt="# " /> +91 7895439932</li>
+                                    <li><img src="images/3.png " alt="# " /> bttborntotravel@gmail.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section ">
+                        <div class="full ">
+                            <div class="center-desk ">
+                                <div class="logo ">
+                                    <a href="index.html "><img src="images/born to travel.png " alt="# "></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 ">
+                        <div class="menu-area ">
+                            <div class="limit-box ">
+                                <nav class="main-menu ">
+                                    <ul class="menu-area-main ">
+                                        <li> <a href="index.html ">Home</a> </li>
+                                        <li class="active"> <a href=" #about ">About</a> </li>
+                                        <li><a href="#travel ">Travel</a></li>
+                                        <li><a href="#blog ">Blog</a></li>
+                                        <li><a href="#contact ">Contact Us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header inner -->
+    </header>
+    <!-- end header -->
+    <div class="container ">
+        <div class="row ">
+            <div class="col-md-12 ">
+                <div class="titlepage ">
+                    <div>
+                        <h2>Contact Us</h2>
+                    </div>
+
+                    <h2>Born To Travel</h2>
+
+                </div>
+                <div class="h1 text-center mt-2 text-primary font-weight-bold">Contact Us</div>
+                <section class="contact-form ">
+                    <div class="container shadow rounded py-5">
+                        <div class="row ">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-6">
+                                <img src="images/contact-us.png" class="img-fluid">
+                            </div>
+
+                            <div class="col-md-5">
+
+                                <form name="myform" method="post" id="contact-form" action="contact-us.php" onsubmit="validation()">
+                                    <div class="form-group">
+                                        <label for="username">Name</label>
+                                        <input type="text" class="form-control" name="name" id="name" maxlength="30" placeholder="Name" pattern="^[a-zA-Z][\sa-zA-Z]{2,32}" required title="Must contain Alphabet only(Min 3 Letters)">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="useremail">Email address</label>
+                                        <input type="email" class="form-control" id="email" name="email" maxlength="30" placeholder="Email-id" required title="e.g. abc@xyz.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usermobile">Mobile Number</label>
+                                        <input type="tel" class="form-control" placeholder="Phone Number" id="mobile" maxlength="10" required title="Enter Only Digits (0-9)" pattern="^\d{10}$" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" name="mobile">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userneed">Select Service</label>
+                                        <select class="form-control " id="usercourse" required name="usercourse">
+                                            <option class="bg-white" value="" selected="selected">Choose Services</option>
+                                            <option class="bg-white" value="Web Development">Software Testing</option>
+                                           
+                                            <option class="bg-white" value="Software Testing">Selenium Testing</option>
+                                            <option class="bg-white" value="Mobile App Development">Automation Testing</option>
+                                            <option class="bg-white" value="Mobile App Development">Core Java</option>
+                                          
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usermessage">Your Message</label>
+                                        <textarea class="form-control" placeholder="Your Message Here" required id="usermsg" name="usermsg" rows="3"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-info btn-lg" data-toggle="modal">Submit</button>
+                                    </div>
+                                    <div class="alert alert-success mt-4" id="alert-feedback" role="alert" style="display:none;">
+                                        Your Message has been submitted we will contact you soon
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+            </div>
+
+            <!-- footer -->
+            <footer>
+                <div id="contact " class="footer ">
+                    <div class="container ">
+                        <div class="row pdn-top-30 ">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
+                                <ul class="location_icon ">
+                                    <li>
+                                        <a href="# "><img src="images/facebook.png "></a>
+                                    </li>
+                                    <li>
+                                        <a href="# "><img src="images/Twitter.png "></a>
+                                    </li>
+                                    <li>
+                                        <a href="# "><img src="images/linkedin.png "></a>
+                                    </li>
+                                    <li>
+                                        <a href="# "><img src="images/instagram.png "></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
+                                <div class="Follow ">
+                                    <h3>CONTACT US</h3>
+                                    <span>New Rajendar Nagar <br>Delhi Road,<br>
+                        Hapur, 245101 <br>
+                        +91 7895439932</span>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 ">
+                                <div class="Follow ">
+                                    <h3>ADDITIONAL LINKS</h3>
+                                    <ul class="link ">
+                                        <li> <a href="# ">About us</a></li>
+                                        <li> <a href="# ">Terms and conditions</a></li>
+                                        <li> <a href="# "> Privacy policy</a></li>
+                                        <li> <a href="# ">News</a></li>
+                                        <li> <a href="# "> Contact us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright ">
+                        <div class="container ">
+                            <p>Copyright 2021 All Right Reserved By
+                                <a href="https://bttborntotravel.com ">Travel with Us</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </footer>
+        <!-- end footer -->
+        <!-- Javascript files-->
+        <script src="js/jquery.min.js "></script>
+        <script src="js/popper.min.js "></script>
+        <script src="js/bootstrap.bundle.min.js "></script>
+        <script src="js/jquery-3.0.0.min.js "></script>
+        <script src="js/plugin.js "></script>
+        <!-- sidebar -->
+        <script src="js/jquery.mCustomScrollbar.concat.min.js "></script>
+        <script src="js/custom.js "></script>
+        <!-- javascript -->
+        <script src="js/owl.carousel.js "></script>
+
+</body>
+
+</html>
+
+</html>
+
+</html>
+
+</html>
