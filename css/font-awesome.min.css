@@ -3047,3 +3047,13 @@ a.effect-shine:hover {
     overflow: visible;
     clip: auto
 }
+
+sr-only-focusable:active,
+.sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto
+}

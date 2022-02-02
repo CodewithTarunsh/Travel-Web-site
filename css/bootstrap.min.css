@@ -5,6 +5,26 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+@media screen and (min-width: 750px) {
+    #content {
+        float: left;
+        width: 60%;
+    }
+    #sidebar {
+        float: right;
+        width: 35%
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 749px) {
+    #content {
+        width: 95%;
+    }
+    #sidebar {
+        width: 95%;
+    }
+}
+
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
